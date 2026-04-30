@@ -1,0 +1,95 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String    @id @default(cuid())
+  email     String    @unique
+  password  String
+  name      String
+  role      Role      @default(ADMIN)
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  sessions  Session[]
+  listings  Property[] @relation("ListedProperties")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Property {
+  id              String         @id @default(cuid())
+  title           String
+  slug            String         @unique
+  excerpt         String         @db.Text
+  description     String         @db.Text
+  propertyType    PropertyType
+  listingType     ListingType
+  status          ListingStatus  @default(PUBLISHED)
+  price           Float
+  location        String
+  address         String
+  bedrooms        Int
+  bathrooms       Int
+  areaSqm         Int
+  coverImage      String
+  gallery         Json
+  features        Json
+  featured        Boolean        @default(false)
+  listedById      String?
+  listedByName    String
+  listedByEmail   String
+  listedByPhone   String?
+  whatsappNumber  String
+  publishedAt     DateTime       @default(now())
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  listedBy        User?          @relation("ListedProperties", fields: [listedById], references: [id])
+}
+
+model BlogPost {
+  id          String   @id @default(cuid())
+  title       String
+  slug        String   @unique
+  excerpt     String   @db.Text
+  body        String   @db.Text
+  coverImage  String
+  category    String
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+}
+
+enum Role {
+  ADMIN
+}
+
+enum PropertyType {
+  APARTMENT
+  DUPLEX
+  TERRACE
+  LAND
+  OFFICE
+  VILLA
+}
+
+enum ListingType {
+  SALE
+  RENT
+  SHORTLET
+}
+
+enum ListingStatus {
+  PUBLISHED
+  PENDING
+  SOLD
+  RENTED
+}
