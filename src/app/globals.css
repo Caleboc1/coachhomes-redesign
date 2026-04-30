@@ -3,16 +3,16 @@
 @import "aos/dist/aos.css";
 
 :root {
-  --surface: #f7f3ee;
-  --panel: #f1ebe4;
-  --panel-strong: #e5ddd3;
-  --ink: #0c1725;
-  --muted: #5d6673;
-  --line: rgba(12, 23, 37, 0.1);
-  --accent-brand: #bd6d32;
-  --accent-brand-strong: #a65f2b;
-  --sand: #e7c1a0;
-  --sand-soft: #f4e0d0;
+  --surface: #fffaf6;
+  --panel: #fff;
+  --panel-strong: #efc9b2;
+  --ink: #050505;
+  --muted: #5f544d;
+  --line: rgba(5, 5, 5, 0.12);
+  --accent-brand: #e6b89c;
+  --accent-brand-strong: #d99f7b;
+  --sand: #ffd8c2;
+  --sand-soft: #fff0e6;
 }
 
 * {
@@ -28,7 +28,7 @@ body {
   min-height: 100vh;
   background: var(--surface);
   color: var(--ink);
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body), monospace;
 }
 
 a {
@@ -37,7 +37,11 @@ a {
 }
 
 .font-display {
-  font-family: var(--font-display), serif;
+  font-family: var(--font-display), sans-serif;
+}
+
+.font-body {
+  font-family: var(--font-body), monospace;
 }
 
 input,

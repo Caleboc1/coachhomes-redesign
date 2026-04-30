@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { getBlogPosts } from "@/lib/data";
-import { SiteFooter, SiteHeader } from "@/components/site";
+import { SiteFooter } from "@/components/site";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default async function BlogPage() {
   const posts = await getBlogPosts();
@@ -12,7 +13,7 @@ export default async function BlogPage() {
         <p className="text-xs uppercase tracking-[0.32em] text-[var(--accent-brand)]">Blog</p>
         <h1 className="mt-4 max-w-4xl font-display text-6xl text-[var(--ink)]">Property insight shaped for sellers, landlords and serious buyers.</h1>
         <div className="mt-12 grid gap-8 lg:grid-cols-2">
-          {posts.map((post, index) => (
+          {posts.map((post:any, index:number) => (
             <article key={post.slug} className="overflow-hidden rounded-[2rem] border border-[var(--line)] bg-white" data-aos="fade-up" data-aos-delay={index * 80}>
               <div className="relative h-72">
                 <Image src={post.coverImage} alt={post.title} fill className="object-cover" />

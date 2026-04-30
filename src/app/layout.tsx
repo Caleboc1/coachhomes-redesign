@@ -1,21 +1,30 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Space_Grotesk, Space_Mono, Cormorant_Garamond } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "@/app/globals.css";
 import { Providers } from "@/components/Providers";
 import AOSProvider from "@/components/AOSProvider";
 
-const display = Cormorant_Garamond({
+
+const displayCormorant = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-display",
   weight: ["500", "600", "700"],
 });
 
-const body = Manrope({
+const display = Space_Grotesk({
   subsets: ["latin"],
-  variable: "--font-body",
+  variable: "--font-display",
   weight: ["400", "500", "600", "700"],
 });
+
+const body = Space_Mono({
+  subsets: ["latin"],
+  variable: "--font-body",
+  weight: ["400", "700"],
+});
+
+
 
 export const metadata: Metadata = {
   title: {
@@ -28,7 +37,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} bg-[var(--surface)] text-[var(--ink)] antialiased`}>
+      <body className={`${display.variable} ${body.variable} text-[var(--ink)] antialiased`}>
         <Providers>
           <AOSProvider />
           {children}

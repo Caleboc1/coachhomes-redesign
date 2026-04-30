@@ -1,4 +1,5 @@
-import { SiteFooter, SiteHeader } from "@/components/site";
+import { SiteFooter } from "@/components/site";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default function ContactPage() {
   return (
