@@ -22,7 +22,7 @@ export function SiteHeader() {
   // Consistent styling for all pages - transparent with glass effect
   const textColorClass = "text-white [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]";
   const hoverColorClass = "hover:text-[var(--accent-brand)]";
-  const mobileMenuBgClass = "bg-black/95 backdrop-blur-xl";
+  const mobileMenuBgClass = "bg-[rgba(255,240,230,0.18)] backdrop-blur-xl";
   const mobileTextColorClass = "text-white hover:text-[var(--accent-brand)]";
 
   return (
@@ -50,7 +50,7 @@ export function SiteHeader() {
               key={item.href} 
               href={item.href} 
               className={`${textColorClass} ${hoverColorClass} transition-colors ${
-                pathname === item.href ? "text-white font-semibold" : ""
+                pathname === item.href ? "text-[var(--accent-brand)] font-semibold" : ""
               }`}
             >
               {item.label}
@@ -81,16 +81,16 @@ export function SiteHeader() {
         </div>
       </div>
 
-      {/* Mobile Navigation */}
+      {/* Mobile Navigation with Glass Morphism */}
       {isMenuOpen && (
         <div className="lg:hidden">
-          <div className={`px-6 pt-2 pb-6 space-y-2 ${mobileMenuBgClass} border-t border-white/10`}>
+          <div className={`px-6 pt-2 pb-6 space-y-2 ${mobileMenuBgClass} border-t border-white/20 shadow-2xl`}>
             {navItems.map((item) => (
               <Link
                 key={item.href}
                 href={item.href}
                 className={`block px-3 py-2 text-base font-medium rounded-lg transition-colors ${mobileTextColorClass} ${
-                  pathname === item.href ? "bg-white/10 text-[var(--accent-brand)]" : ""
+                  pathname === item.href ? "bg-white/20 text-[var(--accent-brand)]" : ""
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
