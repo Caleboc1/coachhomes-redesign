@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Space_Mono, Cormorant_Garamond } from "next/font/google";
+import { Space_Grotesk, Space_Mono, Cormorant_Garamond,Poppins } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import "@/app/globals.css";
 import { Providers } from "@/components/Providers";
 import AOSProvider from "@/components/AOSProvider";
 import WhatsAppCTA from "@/components/WhatsappCta";
 
+const poppins = Poppins({
+  subsets: ["latin"],
+  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+});
 
 const displayCormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -38,7 +43,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${display.variable} ${body.variable} text-[var(--ink)] antialiased`}>
+      <body className={`${display.variable} ${body.variable} ${poppins.variable}  text-[var(--ink)] antialiased`}>
         <Providers>
           <AOSProvider />
           {children}

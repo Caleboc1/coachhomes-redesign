@@ -24,7 +24,7 @@ const navItems = [
 //             CH
 //           </div>
 //           <div>
-//             <p className="font-display text-lg tracking-wide">Coach Homes</p>
+//             <p className="font-poppins text-lg tracking-wide">Coach Homes</p>
 //             <p className="text-xs uppercase tracking-[0.32em] text-[var(--muted)]">Luxury Property Advisory</p>
 //           </div>
 //         </Link>
@@ -48,7 +48,7 @@ export function SiteFooter() {
     <footer className="border-t border-(--line) bg-(--panel)">
       <div className="mx-auto grid max-w-7xl gap-10 px-6 py-14 md:grid-cols-4">
         <div className="md:col-span-2">
-          <p className="font-display text-2xl text-(--ink)">Coach Homes</p>
+          <p className="font-poppins text-2xl text-(--ink)">Coach Homes</p>
           <p className="mt-3 max-w-xl text-sm leading-7 text-(--muted)">
             Real estate presentation, listing strategy and advisory built to make premium properties feel premium online.
           </p>
@@ -109,7 +109,7 @@ export async function HomeSections() {
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
           <div className="relative z-10">
             <p className="mb-5 text-xs uppercase tracking-[0.36em] text-[var(--sand)]" data-aos="fade-up">Refined Real Estate, Better Presented</p>
-            <h1 className="max-w-3xl font-display text-5xl leading-none md:text-7xl min-h-[200px] md:min-h-[240px]" data-aos="fade-up" data-aos-delay="80">
+            <h1 className="max-w-3xl font-poppins text-5xl leading-none md:text-7xl min-h-[200px] md:min-h-[240px]" data-aos="fade-up" data-aos-delay="80">
   <Typewriter 
     texts={typewriterTexts}
     typingSpeed={40}
@@ -126,7 +126,7 @@ export async function HomeSections() {
             <div className="mt-12 grid gap-5 md:grid-cols-3" data-aos="fade-up" data-aos-delay="260">
               {statsWithValues.map((stat) => (
                 <div key={stat.label} className="rounded-3xl border border-white/10 bg-black/30 p-5 backdrop-blur-sm">
-                  <p className="font-display text-3xl">
+                  <p className="font-poppins text-3xl">
                     <CountUp 
                       end={stat.numericValue} 
                       suffix={stat.suffix} 
@@ -145,7 +145,7 @@ export async function HomeSections() {
                   <Image src={property.coverImage} alt={property.title} fill className="object-cover" />
                 </div>
                 <p className="mt-4 text-xs uppercase tracking-[0.28em] text-(--sand)">{property.listingType}</p>
-                <p className="mt-2 font-display text-2xl">{property.title}</p>
+                <p className="mt-2 font-poppins text-2xl">{property.title}</p>
                 <p className="mt-2 text-sm text-white/80">{property.location}</p>
               </div>
             ))}
@@ -160,7 +160,7 @@ export async function HomeSections() {
               <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--sand-soft)] text-[var(--ink)]">
                 <ShieldCheck className="h-5 w-5" />
               </div>
-              <h2 className="font-display text-2xl text-[var(--ink)]">{service.title}</h2>
+              <h2 className="font-poppins text-2xl text-[var(--ink)]">{service.title}</h2>
               <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{service.body}</p>
             </div>
           ))}
@@ -175,7 +175,7 @@ export async function HomeSections() {
           <div className="mb-10 flex items-end justify-between gap-6">
             <div>
               <p className="text-xs uppercase tracking-[0.32em] text-(--sand)">Featured Listings</p>
-              <h2 className="mt-3 font-display text-4xl text-white">Properties with stronger presence and faster enquiry flow</h2>
+              <h2 className="mt-3 font-poppins text-4xl text-white">Properties with stronger presence and faster enquiry flow</h2>
             </div>
             <Link href="/properties" className="hidden items-center gap-2 text-sm font-medium text-(--ink) md:inline-flex">
               See all properties <MoveRight className="h-4 w-4" />
@@ -192,7 +192,7 @@ export async function HomeSections() {
       <section className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
         <div data-aos="fade-right">
           <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">Why This Direction</p>
-          <h2 className="mt-3 font-display text-4xl text-(--ink)">A bolder identity without losing the trust signals a property brand needs.</h2>
+          <h2 className="mt-3 font-poppins text-4xl text-(--ink)">A bolder identity without losing the trust signals a property brand needs.</h2>
         </div>
         <div className="grid gap-6 sm:grid-cols-2" data-aos="fade-left">
           {[
@@ -216,7 +216,7 @@ export async function HomeSections() {
           <div className="mb-10 flex items-end justify-between">
             <div>
               <p className="text-xs uppercase tracking-[0.32em] text-(--sand)">Insights</p>
-              <h2 className="mt-3 font-display text-4xl">Market context and practical guidance</h2>
+              <h2 className="mt-3 font-poppins text-4xl">Market context and practical guidance</h2>
             </div>
             <Link href="/blog" className="text-sm text-(--accent-brand)">Visit the blog</Link>
           </div>
@@ -227,7 +227,7 @@ export async function HomeSections() {
                   <Image src={post.coverImage} alt={post.title} fill className="object-cover" />
                 </div>
                 <p className="mt-5 text-xs uppercase tracking-[0.26em] text-(--sand)">{post.category}</p>
-                <h3 className="mt-3 font-display text-3xl">{post.title}</h3>
+                <h3 className="mt-3 font-poppins text-3xl">{post.title}</h3>
                 <p className="mt-3 text-sm leading-7 text-white/80">{post.excerpt}</p>
               </article>
             ))}
@@ -257,7 +257,7 @@ export function PropertyCard({ property, index = 0 }: { property: any; index?: n
           </span>
           <p className="text-lg font-semibold text-white">{formatPrice(property.price, property.listingType)}</p>
         </div>
-        <h3 className="mt-4 font-display text-3xl text-white">{property.title}</h3>
+        <h3 className="mt-4 font-poppins text-3xl text-white">{property.title}</h3>
         <div className="mt-3 flex items-center gap-2 text-sm text-white/80">
           <MapPin className="h-4 w-4" />
           <span>{property.location}</span>

@@ -13,7 +13,7 @@ export default function ContactPage() {
           <div className="grid gap-8 lg:grid-cols-2">
             <div data-aos="fade-right">
               <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">Contact</p>
-              <h1 className="mt-4 font-display text-6xl text-white">Talk to Coach Homes about sales, letting or property acquisition.</h1>
+              <h1 className="mt-4 font-poppins text-6xl text-white">Talk to Coach Homes about sales, letting or property acquisition.</h1>
               <p className="mt-6 max-w-xl text-base leading-8 text-white/80">
                 The redesigned contact page keeps things direct: fast response expectations, clear communication points and a better lead path into inspections or consultation.
               </p>

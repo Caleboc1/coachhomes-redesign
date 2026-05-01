@@ -9,7 +9,7 @@ export function FeaturedPropertiesSection({ featuredProperties }: { featuredProp
         <div className="mb-10 flex items-end justify-between gap-6">
           <div>
             <p className="text-xs uppercase tracking-[0.32em] text-[var(--ink)]">Featured Listings</p>
-            <h2 className="mt-3 font-display text-4xl text-[var(--ink)]">
+            <h2 className="mt-3 font-poppins text-4xl text-[var(--ink)]">
               Properties with stronger presence and faster enquiry flow
             </h2>
           </div>

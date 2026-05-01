@@ -14,7 +14,7 @@ export default function ServicesPage() {
           <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)" data-aos="fade-up">
             Services
           </p>
-          <h1 className="mt-4 max-w-4xl font-display text-6xl text-white" data-aos="fade-up" data-aos-delay="80">
+          <h1 className="mt-4 max-w-4xl font-poppins text-6xl text-white" data-aos="fade-up" data-aos-delay="80">
             Property services built around clarity, presentation and conversion.
           </h1>
           <div className="mt-12 grid gap-8 md:grid-cols-2">
@@ -25,7 +25,7 @@ export default function ServicesPage() {
                 data-aos="fade-up" 
                 data-aos-delay={index * 90}
               >
-                <h2 className="font-display text-3xl text-white">{service.title}</h2>
+                <h2 className="font-poppins text-3xl text-white">{service.title}</h2>
                 <p className="mt-4 text-sm leading-7 text-white/80">{service.body}</p>
               </article>
             ))}

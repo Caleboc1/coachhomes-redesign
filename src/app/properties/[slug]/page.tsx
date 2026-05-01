@@ -39,7 +39,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
             </div>
             <div>
               <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">{property.listingType} listing</p>
-              <h1 className="mt-4 font-display text-5xl text-white">{property.title}</h1>
+              <h1 className="mt-4 font-poppins text-5xl text-white">{property.title}</h1>
               <div className="mt-4 flex items-center gap-2 text-sm text-white/80">
                 <MapPin className="h-4 w-4" />
                 <span>{property.address}</span>

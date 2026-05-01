@@ -16,7 +16,7 @@ export default async function PropertiesPage() {
           <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)" data-aos="fade-up">
             Properties
           </p>
-          <h1 className="mt-4 max-w-4xl font-display text-6xl text-white" data-aos="fade-up" data-aos-delay="80">
+          <h1 className="mt-4 max-w-4xl font-poppins text-6xl text-white" data-aos="fade-up" data-aos-delay="80">
             Discover listings with direct enquiry built into every card.
           </h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-white/80" data-aos="fade-up" data-aos-delay="120">

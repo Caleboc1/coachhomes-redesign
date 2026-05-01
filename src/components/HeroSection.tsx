@@ -22,7 +22,7 @@ export function HeroSection({ featuredProperties }: { featuredProperties: any[] 
           <p className="mb-5 text-xs uppercase tracking-[0.36em] text-[var(--sand)]" data-aos="fade-up">
             Refined Real Estate, Better Presented
           </p>
-          <h1 className="max-w-3xl font-display text-5xl leading-none md:text-7xl" data-aos="fade-up" data-aos-delay="80">
+          <h1 className="max-w-3xl font-poppins text-5xl leading-none md:text-7xl" data-aos="fade-up" data-aos-delay="80">
             A sharper digital home for premium listings, lettings and investor-grade property discovery.
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-8 text-white/80" data-aos="fade-up" data-aos-delay="140">
@@ -39,7 +39,7 @@ export function HeroSection({ featuredProperties }: { featuredProperties: any[] 
           <div className="mt-12 grid gap-5 md:grid-cols-3" data-aos="fade-up" data-aos-delay="260">
             {companyStats.map((stat) => (
               <div key={stat.label} className="rounded-3xl border border-white/10 bg-black/30 p-5 backdrop-blur-sm">
-                <p className="font-display text-3xl">{stat.value}</p>
+                <p className="font-poppins text-3xl">{stat.value}</p>
                 <p className="mt-2 text-sm text-white/80">{stat.label}</p>
               </div>
             ))}
@@ -61,7 +61,7 @@ export function HeroSection({ featuredProperties }: { featuredProperties: any[] 
                 <Image src={property.coverImage} alt={property.title} fill className="object-cover" />
               </div>
               <p className="mt-4 text-xs uppercase tracking-[0.28em] text-[var(--sand)]">{property.listingType}</p>
-              <p className="mt-2 font-display text-2xl">{property.title}</p>
+              <p className="mt-2 font-poppins text-2xl">{property.title}</p>
               <p className="mt-2 text-sm text-white/80">{property.location}</p>
             </div>
           ))}

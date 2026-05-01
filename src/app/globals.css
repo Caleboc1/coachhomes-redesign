@@ -44,6 +44,10 @@ a {
   font-family: var(--font-body), monospace;
 }
 
+.font-poppins {
+  font-family: var(--font-poppins), sans-serif;
+}
+
 input,
 textarea,
 select {

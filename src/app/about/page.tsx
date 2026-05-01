@@ -13,7 +13,7 @@ export default function AboutPage() {
           <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)" data-aos="fade-up">
             About Coach Homes
           </p>
-          <h1 className="mt-4 max-w-4xl font-display text-6xl text-white" data-aos="fade-up" data-aos-delay="80">
+          <h1 className="mt-4 max-w-4xl font-poppins text-6xl text-white" data-aos="fade-up" data-aos-delay="80">
             A real estate brand should feel as considered as the properties it represents.
           </h1>
           <div className="mt-10 grid gap-8 lg:grid-cols-2">

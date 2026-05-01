@@ -34,7 +34,7 @@ export function SiteHeader() {
             CH
           </div>
           <div>
-            <p className="font-display text-lg tracking-wide text-white">
+            <p className="font-poppins text-lg tracking-wide text-white">
               Coach Homes
             </p>
             <p className="text-xs uppercase tracking-[0.32em] text-white/80">

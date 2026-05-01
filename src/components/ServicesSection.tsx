@@ -27,7 +27,7 @@ export function ServicesSection() {
             <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--sand-soft)] text-[var(--ink)]">
               <ShieldCheck className="h-5 w-5" />
             </div>
-            <h2 className="font-display text-2xl text-[var(--ink)]">{service.title}</h2>
+            <h2 className="font-poppins text-2xl text-[var(--ink)]">{service.title}</h2>
             <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{service.body}</p>
           </div>
         ))}
