@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Bath, BedDouble, MapPin, MessageCircleMore, Ruler } from "lucide-react";
 import { getPropertyBySlug } from "@/lib/data";
 import { buildWhatsAppUrl, formatPrice } from "@/lib/utils";
-import { SiteFooter, SiteHeader } from "@/components/site";
+import { SiteFooter } from "@/components/site";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default async function PropertyDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

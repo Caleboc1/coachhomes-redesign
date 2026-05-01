@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, PropertyType, ListingType, ListingStatus } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
@@ -23,8 +23,8 @@ async function main() {
       slug: "signature-four-bedroom-duplex-lekki-phase-1",
       excerpt: "A clean-lined family duplex with a cinema lounge, private terrace and concierge-ready gatehouse.",
       description: "Designed for buyers who want a refined city address, this duplex pairs wide glass openings with warm stone finishes, a generous living area, ensuite bedrooms and a fitted kitchen that opens into a service courtyard.",
-      propertyType: "DUPLEX",
-      listingType: "SALE",
+      propertyType: PropertyType.DUPLEX,
+      listingType: ListingType.SALE,
       price: 385000000,
       location: "Lekki Phase 1, Lagos",
       address: "Fola Osibo Close, Lekki Phase 1, Lagos",
@@ -43,14 +43,15 @@ async function main() {
       listedByEmail: "listings@coachhomesltd.com",
       listedByPhone: "+2348030000000",
       whatsappNumber: "2348030000000",
+      status: ListingStatus.PUBLISHED,
     },
     {
       title: "Waterfront Three-Bedroom Apartment with Marina Views",
       slug: "waterfront-three-bedroom-apartment-marina-views",
       excerpt: "High-floor apartment with sunrise views, premium finishes and a residents-only wellness suite.",
       description: "This apartment brings together serene water views, practical open-plan living and secure estate amenities for professionals or young families seeking a quieter high-end address.",
-      propertyType: "APARTMENT",
-      listingType: "RENT",
+      propertyType: PropertyType.APARTMENT,
+      listingType: ListingType.RENT,
       price: 28000000,
       location: "Banana Island, Lagos",
       address: "Ocean Crest Residences, Banana Island, Lagos",
@@ -69,14 +70,15 @@ async function main() {
       listedByEmail: "rentals@coachhomesltd.com",
       listedByPhone: "+2348030000000",
       whatsappNumber: "2348030000000",
+      status: ListingStatus.PUBLISHED,
     },
     {
       title: "Prime Mixed-Use Development Plot",
       slug: "prime-mixed-use-development-plot",
       excerpt: "Dry, title-secure land parcel positioned for retail, office or residential development.",
       description: "An investment-grade land opportunity in a growth corridor with straightforward access, credible title documentation and a surrounding neighborhood seeing active commercial expansion.",
-      propertyType: "LAND",
-      listingType: "SALE",
+      propertyType: PropertyType.LAND,
+      listingType: ListingType.SALE,
       price: 145000000,
       location: "Abijo GRA, Lagos",
       address: "Coral District, Abijo GRA, Lagos",
@@ -94,6 +96,7 @@ async function main() {
       listedByEmail: "invest@coachhomesltd.com",
       listedByPhone: "+2348030000000",
       whatsappNumber: "2348030000000",
+      status: ListingStatus.PUBLISHED,
     },
   ];
 
@@ -113,6 +116,7 @@ async function main() {
       body: "A strong listing launch depends on timing, documentation and a price that respects the current market. Buyers move fastest when the property narrative, visuals and asking price align.",
       coverImage: "https://images.unsplash.com/photo-1460317442991-0ec209397118?auto=format&fit=crop&w=1200&q=80",
       category: "Selling",
+      publishedAt: new Date(),
     },
     {
       title: "What Premium Renters Now Expect from Modern Apartments",
@@ -121,6 +125,7 @@ async function main() {
       body: "High-income renters evaluate daily comfort as much as aesthetics. Reliable utilities, strong management and privacy now matter as much as marble finishes.",
       coverImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200&q=80",
       category: "Renting",
+      publishedAt: new Date(),
     },
   ];
 
@@ -131,8 +136,15 @@ async function main() {
       create: post,
     });
   }
+
+  console.log("✅ Seed completed successfully");
 }
 
-main().finally(async () => {
-  await prisma.$disconnect();
-});
+main()
+  .catch((e) => {
+    console.error("❌ Seed failed:", e);
+    process.exit(1);
+  })
+  .finally(async () => {
+    await prisma.$disconnect();
+  });

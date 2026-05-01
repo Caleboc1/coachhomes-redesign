@@ -4,6 +4,22 @@ import { prisma } from "@/lib/prisma";
 import { authOptions } from "@/lib/auth";
 import { fallbackProperties } from "@/lib/data";
 
+interface Property {
+  id: string;
+  title: string;
+  listingType: string;
+  status: string;
+  location: string;
+  listedByName: string;
+  listedByEmail: string;
+  createdAt: Date;
+}
+
+interface LocationStats {
+  location: string;
+  count: number;
+}
+
 async function getAdminData() {
   try {
     const properties = await prisma.property.findMany({
@@ -20,25 +36,38 @@ async function getAdminData() {
       },
     });
 
-    const locations = Object.entries(
-      properties.reduce<Record<string, number>>((accumulator, property) => {
-        accumulator[property.location] = (accumulator[property.location] ?? 0) + 1;
-        return accumulator;
-      }, {}),
-    )
-      .sort((a, b) => b[1] - a[1])
+    // Fix: Properly typed reduce without generic type argument
+    const locationsMap: Record<string, number> = properties.reduce(
+      (accumulator: Record<string, number>, property: Property): Record<string, number> => {
+      accumulator[property.location] = (accumulator[property.location] ?? 0) + 1;
+      return accumulator;
+      },
+      {}
+    );
+
+    // Fix: Convert to LocationStats array with proper typing
+    const locations: LocationStats[] = Object.entries(locationsMap)
+      .map(([location, count]): LocationStats => ({ location, count: count as number }))
+      .sort((a, b) => b.count - a.count)
       .slice(0, 4);
 
-    const summary = {
+    interface Summary {
+      total: number;
+      forSale: number;
+      forRent: number;
+      publishers: number;
+    }
+
+    const summary: Summary = {
       total: properties.length,
-      forSale: properties.filter((property) => property.listingType === "SALE").length,
-      forRent: properties.filter((property) => property.listingType === "RENT").length,
-      publishers: new Set(properties.map((property) => property.listedByEmail)).size,
+      forSale: properties.filter((property: { listingType: string }) => property.listingType === "SALE").length,
+      forRent: properties.filter((property: { listingType: string }) => property.listingType === "RENT").length,
+      publishers: new Set(properties.map((property: { listedByEmail: string }) => property.listedByEmail)).size,
     };
 
     return { properties, summary, locations };
   } catch {
-    const properties = fallbackProperties.map((property) => ({
+    const properties: Property[] = fallbackProperties.map((property) => ({
       id: property.id,
       title: property.title,
       listingType: property.listingType,
@@ -49,13 +78,16 @@ async function getAdminData() {
       createdAt: new Date(property.publishedAt),
     }));
 
-    const locations = Object.entries(
-      properties.reduce<Record<string, number>>((accumulator, property) => {
-        accumulator[property.location] = (accumulator[property.location] ?? 0) + 1;
-        return accumulator;
-      }, {}),
-    )
-      .sort((a, b) => b[1] - a[1])
+    // Fix: Properly typed reduce without generic type argument
+    const locationsMap: Record<string, number> = properties.reduce((accumulator: Record<string, number>, property) => {
+      accumulator[property.location] = (accumulator[property.location] ?? 0) + 1;
+      return accumulator;
+    }, {});
+
+    // Fix: Convert to LocationStats array with proper typing
+    const locations: LocationStats[] = Object.entries(locationsMap)
+      .map(([location, count]): LocationStats => ({ location, count: count as number }))
+      .sort((a, b) => b.count - a.count)
       .slice(0, 4);
 
     return {
@@ -108,7 +140,7 @@ export default async function AdminDashboardPage() {
           <div className="rounded-[1.75rem] bg-white p-6 shadow-sm">
             <p className="text-sm text-[var(--muted)]">Top listing locations</p>
             <div className="mt-5 space-y-4">
-              {locations.map(([location, count]) => (
+              {locations.map(({ location, count }) => (
                 <div key={location} className="flex items-center justify-between border-b border-[var(--line)] pb-4 last:border-b-0 last:pb-0">
                   <span className="text-[var(--ink)]">{location}</span>
                   <span className="text-sm text-[var(--muted)]">{count} listing(s)</span>
@@ -136,7 +168,7 @@ export default async function AdminDashboardPage() {
               </tr>
             </thead>
             <tbody>
-              {properties.map((property) => (
+              {properties.map((property: Property) => (
                 <tr key={property.id} className="border-t border-[var(--line)]">
                   <td className="px-6 py-4 text-[var(--ink)]">{property.title}</td>
                   <td className="px-6 py-4 text-[var(--muted)]">{property.listingType}</td>
