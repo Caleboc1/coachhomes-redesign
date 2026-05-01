@@ -241,11 +241,11 @@ export function PropertyCard({ property, index = 0 }: { property: any; index?: n
           <div className="flex items-center gap-2"><Bath className="h-4 w-4" />{property.bathrooms || "-"} Baths</div>
           <div className="flex items-center gap-2"><Ruler className="h-4 w-4" />{property.areaSqm} sqm</div>
         </div>
-        <div className="mt-5 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
+        {/* <div className="mt-5 rounded-2xl bg-white/10 p-4 backdrop-blur-sm">
           <p className="text-xs uppercase tracking-[0.22em] text-white/70">Listed by</p>
           <p className="mt-2 text-sm font-semibold text-white">{property.listedByName}</p>
           <p className="text-sm text-white/70">{property.listedByEmail}</p>
-        </div>
+        </div> */}
         <div className="mt-5 flex gap-3">
           <Link 
             href={`/properties/${property.slug}`} 
