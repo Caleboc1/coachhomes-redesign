@@ -21,14 +21,13 @@ export default function AboutPage() {
               className="rounded-4xl border border-white/20 bg-[rgba(255,240,230,0.18)] p-8 text-base leading-8 text-white/90 backdrop-blur-sm" 
               data-aos="fade-right"
             >
-              This redesign positions Coach Homes as a premium, trust-first property company with cleaner hierarchy, better typography and stronger listing credibility. The goal is not decoration. The goal is clearer decision-making for buyers, renters and owners.
+              Coach Homes is a dynamic and diversified real estate firm specializing in comprehensive property solutions. Our core services encompass the full spectrum of the real estate lifecycle, including the operation of premium Short-Let Apartments for modern accommodation needs, expert Property & Facility Management to maximize asset value and operational efficiency, and strategic Space Leasing for commercial and residential clients.
             </p>
             <p 
               className="rounded-4xl border border-white/20 bg-[rgba(255,240,230,0.18)] p-8 text-base leading-8 text-white/90 backdrop-blur-sm" 
               data-aos="fade-left"
             >
-              The site now emphasizes live inventory, publisher visibility, direct enquiries and a private reporting layer for the owner. Every page has a stronger sense of editorial intent while still remaining practical for lead capture.
-            </p>
+Furthermore, we leverage our industry expertise through high-quality execution of General Contracts, offering reliable project delivery across various sectors. Dedicated to professionalism and client satisfaction, Coach Homes is your trusted partner for sophisticated real estate investment, management, and development.            </p>
           </div>
         </div>
       </section>
