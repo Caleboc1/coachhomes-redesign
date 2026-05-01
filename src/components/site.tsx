@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Bath, BedDouble, MapPin, MessageCircleMore, MoveRight, Ruler, ShieldCheck } from "lucide-react";
 import { getBlogPosts, getProperties, services, companyStats } from "@/lib/data";
 import { buildWhatsAppUrl, formatPrice } from "@/lib/utils";
+import { CountUp } from "./CountUp";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -78,6 +79,13 @@ export async function HomeSections() {
   const [properties, posts] = await Promise.all([getProperties(), getBlogPosts()]);
   const featured = properties.slice(0, 3);
 
+   // Process companyStats to extract numeric values and suffixes
+   const statsWithValues = companyStats.map((stat) => ({
+    ...stat,
+    numericValue: parseInt(stat.value.replace(/[^0-9]/g, '')), // Extract numbers from strings like "120+" -> 120
+    suffix: stat.value.replace(/[0-9]/g, '') // Extract suffix like "+" from "120+"
+  }));
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-black/10 bg-black text-white">
@@ -102,10 +110,17 @@ export async function HomeSections() {
               <Link href="/properties" className="rounded-full bg-[var(--accent-brand)] px-5 py-3 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--accent-brand-strong)]">View Properties</Link>
               <Link href="/submit-property" className="rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-white hover:bg-white/10">List a Property</Link>
             </div>
+            {/* Stats with CountUp animation */}
             <div className="mt-12 grid gap-5 md:grid-cols-3" data-aos="fade-up" data-aos-delay="260">
-              {companyStats.map((stat) => (
+              {statsWithValues.map((stat) => (
                 <div key={stat.label} className="rounded-3xl border border-white/10 bg-black/30 p-5 backdrop-blur-sm">
-                  <p className="font-display text-3xl">{stat.value}</p>
+                  <p className="font-display text-3xl">
+                    <CountUp 
+                      end={stat.numericValue} 
+                      suffix={stat.suffix} 
+                      duration={2000} 
+                    />
+                  </p>
                   <p className="mt-2 text-sm text-white/80">{stat.label}</p>
                 </div>
               ))}
