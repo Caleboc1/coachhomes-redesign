@@ -109,16 +109,15 @@ export async function HomeSections() {
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
           <div className="relative z-10">
             <p className="mb-5 text-xs uppercase tracking-[0.36em] text-[var(--sand)]" data-aos="fade-up">Refined Real Estate, Better Presented</p>
-            {/* Typewriter Heading */}
             <h1 className="max-w-3xl font-display text-5xl leading-none md:text-7xl min-h-[200px] md:min-h-[240px]" data-aos="fade-up" data-aos-delay="80">
-              <Typewriter 
-                texts={typewriterTexts}
-                typingSpeed={80}
-                deletingSpeed={40}
-                pauseTime={3000}
-                delay={500}
-              />
-            </h1>
+  <Typewriter 
+    texts={typewriterTexts}
+    typingSpeed={40}
+    deletingSpeed={25}
+    pauseTime={1500}
+    delay={300}
+  />
+</h1>
             <div className="mt-8 flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="200">
               <Link href="/properties" className="rounded-full bg-[var(--accent-brand)] px-5 py-3 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--accent-brand-strong)]">View Properties</Link>
               <Link href="/submit-property" className="rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-white hover:bg-white/10">List a Property</Link>
