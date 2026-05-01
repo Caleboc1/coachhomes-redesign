@@ -50,8 +50,8 @@ export const fallbackProperties = [
     featured: true,
     listedByName: "Coach Homes Team",
     listedByEmail: "listings@coachhomesltd.com",
-    listedByPhone: "+2348030000000",
-    whatsappNumber: "2348030000000",
+    listedByPhone: "+2349035288969",
+    whatsappNumber: "2349035288969",
     publishedAt: new Date().toISOString(),
   },
   {
@@ -78,8 +78,8 @@ export const fallbackProperties = [
     featured: true,
     listedByName: "Coach Homes Team",
     listedByEmail: "rentals@coachhomesltd.com",
-    listedByPhone: "+2348030000000",
-    whatsappNumber: "2348030000000",
+    listedByPhone: "+2349035288969",
+    whatsappNumber: "2349035288969",
     publishedAt: new Date().toISOString(),
   },
   {
@@ -105,8 +105,8 @@ export const fallbackProperties = [
     featured: false,
     listedByName: "Coach Homes Investment Desk",
     listedByEmail: "invest@coachhomesltd.com",
-    listedByPhone: "+2348030000000",
-    whatsappNumber: "2348030000000",
+    listedByPhone: "+2349035288969",
+    whatsappNumber: "2349035288969",
     publishedAt: new Date().toISOString(),
   },
 ];
