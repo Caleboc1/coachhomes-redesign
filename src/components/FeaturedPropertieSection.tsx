@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MoveRight } from "lucide-react";
-import { PropertyCard } from "./site";
+import { PropertyCard } from "./PropertyCard";
 
 export function FeaturedPropertiesSection({ featuredProperties }: { featuredProperties: any[] }) {
   return (
