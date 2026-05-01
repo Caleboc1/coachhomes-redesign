@@ -52,6 +52,28 @@ export function SiteFooter() {
 export async function HomeSections() {
   const [properties, posts] = await Promise.all([getProperties(), getBlogPosts()]);
   const featured = properties.slice(0, 3);
+  const showcaseVideos = [
+    {
+      title: "Exquisite Homes for Short-Let",
+      description: "Premium Experience in Lekki Phase 1. Visit Properties for More.",
+      src: "https://coachhomesltd.com/wp-content/uploads/2025/10/3-bedroom-lekki-phase1-shortlet-2.mp4",
+    },
+    {
+      title: "Aurora Homes, A Blend of Elegance",
+      description: "Carefully curated selection of residences to suit every lifestyle",
+      src: "https://coachhomesltd.com/wp-content/uploads/2025/10/Premium-Properties-in-Lagos-Nigeria.mp4",
+    },
+    {
+      title: "Short-Let Apartment",
+      description: "Experience royalty in Lekki Phase 1. Visit Properties for More.",
+      src: "https://coachhomesltd.com/wp-content/uploads/2025/10/Shortlet.mp4",
+    },
+    {
+      title: "Luxury Redefined",
+      description: "Magnificent short-let apartments for those with special sense of style",
+      src: "https://coachhomesltd.com/wp-content/uploads/2025/10/VID-20250902-WA0020.mp4",
+    },
+  ];
 
   const statsWithValues = companyStats.map((stat) => ({
     ...stat,
@@ -153,24 +175,37 @@ export async function HomeSections() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[0.9fr_1.1fr]">
-        <div data-aos="fade-right">
-          <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">Why This Direction</p>
-          <h2 className="mt-3 font-poppins text-4xl text-(--ink)">A bolder identity without losing the trust signals a property brand needs.</h2>
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="mb-10 flex flex-col gap-4 md:max-w-3xl">
+          <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">Property Showcase</p>
+          <h2 className="font-poppins text-4xl text-(--ink)">Walk through every space before you ever book a viewing.</h2>
+          <p className="text-sm leading-7 text-(--muted)">
+            Each video gives you an unfiltered look at the layout, finishes and feel of the property. so when you do reach out, you already know it's the right fit.
+          </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2" data-aos="fade-left">
-          {[
-            "Every property card shows the listing author and a direct WhatsApp enquiry CTA.",
-            "The property submission page creates live listings so the public catalog stays current.",
-            "The hidden admin area reveals listing volume, publishers and top-performing locations.",
-            "AOS animations are used on entrances, cards and section reveals without overloading the experience.",
-          ].map((item) => (
-            <div key={item} className="rounded-3xl border border-(--line) bg-white p-6 text-sm leading-7 text-(--muted)">
-              {item}
-            </div>
+        <div className="grid gap-8 md:grid-cols-2">
+          {showcaseVideos.map((video, index) => (
+            <article
+              key={video.src}
+              className="overflow-hidden rounded-[2rem] border border-(--line) bg-white shadow-[0_24px_60px_rgba(5,5,5,0.08)]"
+              data-aos="fade-up"
+              data-aos-delay={index * 90}
+            >
+              <div className="relative aspect-[16/10] overflow-hidden bg-black">
+                <video className="h-full w-full object-cover" controls preload="metadata" playsInline>
+                  <source src={video.src} type="video/mp4" />
+                </video>
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/45 to-transparent" />
+              </div>
+              <div className="p-6">
+                <h3 className="font-poppins text-2xl text-(--ink)">{video.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-(--muted)">{video.description}</p>
+              </div>
+            </article>
           ))}
         </div>
       </section>
+
 
       <section className="relative py-20 text-white bg-cover bg-center bg-no-repeat" style={{ backgroundImage: "url('/homebg.jpg')" }}>
         <div className="absolute inset-0 bg-(--ink)/50"></div>
