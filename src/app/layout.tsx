@@ -4,6 +4,7 @@ import { Toaster } from "react-hot-toast";
 import "@/app/globals.css";
 import { Providers } from "@/components/Providers";
 import AOSProvider from "@/components/AOSProvider";
+import WhatsAppCTA from "@/components/WhatsappCta";
 
 
 const displayCormorant = Cormorant_Garamond({
@@ -42,6 +43,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <AOSProvider />
           {children}
           <Toaster position="top-right" />
+          <WhatsAppCTA />
         </Providers>
       </body>
     </html>
