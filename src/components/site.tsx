@@ -4,6 +4,7 @@ import { Bath, BedDouble, MapPin, MessageCircleMore, MoveRight, Ruler, ShieldChe
 import { getBlogPosts, getProperties, services, companyStats } from "@/lib/data";
 import { buildWhatsAppUrl, formatPrice } from "@/lib/utils";
 import { CountUp } from "./CountUp";
+import { Typewriter } from "./TypeWriter";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -86,6 +87,11 @@ export async function HomeSections() {
     suffix: stat.value.replace(/[0-9]/g, '') // Extract suffix like "+" from "120+"
   }));
 
+  const typewriterTexts = [
+    "Specializing in Real Estate Properties, including Short-let Apartments, Property & Facility Management.",
+    "A sharper digital home for premium listings, lettings and investor-grade property discovery."
+  ];
+
   return (
     <>
       <section className="relative overflow-hidden border-b border-black/10 bg-black text-white">
@@ -103,8 +109,15 @@ export async function HomeSections() {
         <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
           <div className="relative z-10">
             <p className="mb-5 text-xs uppercase tracking-[0.36em] text-[var(--sand)]" data-aos="fade-up">Refined Real Estate, Better Presented</p>
-            <h1 className="max-w-3xl font-display text-5xl leading-none md:text-7xl" data-aos="fade-up" data-aos-delay="80">
-              A sharper digital home for premium listings, lettings and investor-grade property discovery.
+            {/* Typewriter Heading */}
+            <h1 className="max-w-3xl font-display text-5xl leading-none md:text-7xl min-h-[200px] md:min-h-[240px]" data-aos="fade-up" data-aos-delay="80">
+              <Typewriter 
+                texts={typewriterTexts}
+                typingSpeed={80}
+                deletingSpeed={40}
+                pauseTime={3000}
+                delay={500}
+              />
             </h1>
             <div className="mt-8 flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="200">
               <Link href="/properties" className="rounded-full bg-[var(--accent-brand)] px-5 py-3 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--accent-brand-strong)]">View Properties</Link>
