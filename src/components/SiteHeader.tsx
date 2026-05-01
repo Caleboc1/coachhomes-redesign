@@ -27,7 +27,7 @@ export function SiteHeader() {
   const mobileTextColorClass = "text-white hover:text-[var(--accent-brand)]";
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md transition-all">
+    <header className="fixed top-0 w-full z-50 bg-transparent backdrop-blur-md transition-all font-poppins">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
