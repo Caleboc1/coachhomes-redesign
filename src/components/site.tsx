@@ -180,7 +180,7 @@ export async function HomeSections() {
           <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">Property Showcase</p>
           <h2 className="font-poppins text-4xl text-(--ink)">Walk through every space before you ever book a viewing.</h2>
           <p className="text-sm leading-7 text-(--muted)">
-            Each video gives you an unfiltered look at the layout, finishes and feel of the property. so when you do reach out, you already know it's the right fit.
+            Each video gives you an unfiltered look at the layout, finishes and feel of the property. so when you do reach out, you already know it&apos;s the right fit.
           </p>
         </div>
         <div className="grid gap-8 md:grid-cols-2">
