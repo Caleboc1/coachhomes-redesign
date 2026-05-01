@@ -26,7 +26,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.24em] text-(--accent-brand)">Phone</p>
-                  <p className="mt-2 text-lg text-white">+234 803 000 0000</p>
+                  <p className="mt-2 text-lg text-white">+2349035288969</p>
                 </div>
                 <div>
                   <p className="text-xs uppercase tracking-[0.24em] text-(--accent-brand)">Office</p>

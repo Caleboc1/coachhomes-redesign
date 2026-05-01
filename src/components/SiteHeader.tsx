@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -18,7 +19,7 @@ const navItems = [
 export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
-  
+
   // Consistent styling for all pages - transparent with glass effect
   const textColorClass = "text-white [text-shadow:_0_1px_2px_rgb(0_0_0_/_40%)]";
   const hoverColorClass = "hover:text-[var(--accent-brand)]";
@@ -30,28 +31,24 @@ export function SiteHeader() {
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3">
-          <div className="flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white text-lg font-semibold transition-all">
-            CH
-          </div>
-          <div>
-            <p className="font-poppins text-lg tracking-wide text-white">
-              Coach Homes
-            </p>
-            <p className="text-xs uppercase tracking-[0.32em] text-white/80">
-              Luxury Property Advisory
-            </p>
-          </div>
+          <Image
+            src="/coachlogo.png"
+            alt="Coach Homes"
+            width={90}
+            height={20}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden items-center gap-6 text-sm lg:flex text-white">
           {navItems.map((item) => (
-            <Link 
-              key={item.href} 
-              href={item.href} 
-              className={`${textColorClass} ${hoverColorClass} transition-colors ${
-                pathname === item.href ? "text-[var(--accent-brand)] font-semibold" : ""
-              }`}
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`${textColorClass} ${hoverColorClass} transition-colors ${pathname === item.href ? "text-[var(--accent-brand)] font-semibold" : ""
+                }`}
             >
               {item.label}
             </Link>
@@ -59,8 +56,8 @@ export function SiteHeader() {
         </nav>
 
         {/* Desktop CTA Button */}
-        <Link 
-          href="/properties" 
+        <Link
+          href="/properties"
           className="hidden rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-sm px-4 py-2 text-sm transition-all hover:bg-white/20 md:inline-flex"
         >
           Browse Listings
@@ -89,9 +86,8 @@ export function SiteHeader() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`block px-3 py-2 text-base font-medium rounded-lg transition-colors ${mobileTextColorClass} ${
-                  pathname === item.href ? "bg-white/20 text-[var(--accent-brand)]" : ""
-                }`}
+                className={`block px-3 py-2 text-base font-medium rounded-lg transition-colors ${mobileTextColorClass} ${pathname === item.href ? "bg-white/20 text-[var(--accent-brand)]" : ""
+                  }`}
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}

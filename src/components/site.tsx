@@ -67,7 +67,7 @@ export function SiteFooter() {
           <p className="text-sm font-semibold uppercase tracking-[0.22em] text-(--muted)">Contact</p>
           <div className="mt-4 space-y-3 text-sm text-(--ink)">
             <p>coachhomesltd@gmail.com</p>
-            <p>+234 803 000 0000</p>
+            <p>+2349035288969</p>
             <p>Lagos, Nigeria</p>
           </div>
         </div>
@@ -80,8 +80,8 @@ export async function HomeSections() {
   const [properties, posts] = await Promise.all([getProperties(), getBlogPosts()]);
   const featured = properties.slice(0, 3);
 
-   // Process companyStats to extract numeric values and suffixes
-   const statsWithValues = companyStats.map((stat) => ({
+  // Process companyStats to extract numeric values and suffixes
+  const statsWithValues = companyStats.map((stat) => ({
     ...stat,
     numericValue: parseInt(stat.value.replace(/[^0-9]/g, '')), // Extract numbers from strings like "120+" -> 120
     suffix: stat.value.replace(/[0-9]/g, '') // Extract suffix like "+" from "120+"
@@ -106,18 +106,18 @@ export async function HomeSections() {
         </video>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.82)_0%,rgba(0,0,0,0.62)_42%,rgba(0,0,0,0.5)_100%)]" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(230,184,156,0.38),transparent_24%)]" />
-        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 lg:grid-cols-[1.1fr_0.9fr] lg:py-28">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 py-20 pt-35 md:pt-40 lg:grid-cols-[1.1fr_0.9fr]">
           <div className="relative z-10">
             <p className="mb-5 text-xs uppercase tracking-[0.36em] text-[var(--sand)]" data-aos="fade-up">Refined Real Estate, Better Presented</p>
             <h1 className="max-w-3xl font-poppins text-5xl leading-none md:text-7xl min-h-[200px] md:min-h-[240px]" data-aos="fade-up" data-aos-delay="80">
-  <Typewriter 
-    texts={typewriterTexts}
-    typingSpeed={40}
-    deletingSpeed={25}
-    pauseTime={1500}
-    delay={300}
-  />
-</h1>
+              <Typewriter
+                texts={typewriterTexts}
+                typingSpeed={40}
+                deletingSpeed={25}
+                pauseTime={1500}
+                delay={300}
+              />
+            </h1>
             <div className="mt-8 flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="200">
               <Link href="/properties" className="rounded-full bg-[var(--accent-brand)] px-5 py-3 text-sm font-medium text-[var(--ink)] transition hover:bg-[var(--accent-brand-strong)]">View Properties</Link>
               <Link href="/submit-property" className="rounded-full border border-white/20 px-5 py-3 text-sm font-medium text-white hover:bg-white/10">List a Property</Link>
@@ -127,10 +127,10 @@ export async function HomeSections() {
               {statsWithValues.map((stat) => (
                 <div key={stat.label} className="rounded-3xl border border-white/10 bg-black/30 p-5 backdrop-blur-sm">
                   <p className="font-poppins text-3xl">
-                    <CountUp 
-                      end={stat.numericValue} 
-                      suffix={stat.suffix} 
-                      duration={2000} 
+                    <CountUp
+                      end={stat.numericValue}
+                      suffix={stat.suffix}
+                      duration={2000}
                     />
                   </p>
                   <p className="mt-2 text-sm text-white/80">{stat.label}</p>
@@ -242,9 +242,9 @@ export function PropertyCard({ property, index = 0 }: { property: any; index?: n
   const whatsappUrl = buildWhatsAppUrl(property.whatsappNumber, property.title, property.location);
 
   return (
-    <article 
-      className="overflow-hidden rounded-4xl border border-white/10 bg-[rgba(255,240,230,0.18)] shadow-2xl backdrop-blur-sm" 
-      data-aos="fade-up" 
+    <article
+      className="overflow-hidden rounded-4xl border border-white/10 bg-[rgba(255,240,230,0.18)] shadow-2xl backdrop-blur-sm"
+      data-aos="fade-up"
       data-aos-delay={index * 90}
     >
       <Link href={`/properties/${property.slug}`} className="relative block h-72">
@@ -274,16 +274,16 @@ export function PropertyCard({ property, index = 0 }: { property: any; index?: n
           <p className="text-sm text-white/70">{property.listedByEmail}</p>
         </div> */}
         <div className="mt-5 flex gap-3">
-          <Link 
-            href={`/properties/${property.slug}`} 
+          <Link
+            href={`/properties/${property.slug}`}
             className="rounded-full border border-white/30 px-2 py-3 text-xs font-medium text-white backdrop-blur-sm transition hover:bg-white/10"
           >
             View details
           </Link>
-          <a 
-            href={whatsappUrl} 
-            target="_blank" 
-            rel="noreferrer" 
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-white px-2 py-3 text-xs font-medium text-[var(--ink)] transition hover:bg-white/90"
           >
             <MessageCircleMore className="h-4 w-4" />
