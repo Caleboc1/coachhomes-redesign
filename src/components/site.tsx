@@ -231,6 +231,47 @@ export async function HomeSections() {
           </div>
         </div>
       </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20">
+        <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+          <div
+            className="overflow-hidden rounded-[2rem] border border-(--line) bg-[linear-gradient(135deg,#fff7f1_0%,#ffffff_100%)] shadow-[0_24px_70px_rgba(5,5,5,0.08)]"
+            data-aos="fade-right"
+          >
+            <div className="relative aspect-[4/5]">
+              <Image src="/CEO.jpg" alt="Coach Homes CEO and Founder" fill className="object-cover" />
+            </div>
+          </div>
+          <div data-aos="fade-left">
+            <p className="text-xs uppercase tracking-[0.32em] text-(--accent-brand)">The CEO/Founder</p>
+            <h2 className="mt-3 max-w-xl font-poppins text-4xl text-(--ink)">We are driven by integrity and quality service</h2>
+            <p className="mt-5 max-w-2xl text-sm leading-7 text-(--muted)">
+              Coach Homes continues to present property with a more refined digital standard while staying rooted in the trust, clarity and quality service that define the brand.
+            </p>
+
+            <div className="mt-8 rounded-[1.75rem] border border-(--line) bg-white p-6">
+              <p className="text-xs uppercase tracking-[0.28em] text-(--muted)">Properties Listing</p>
+              <div className="mt-5 grid gap-3 text-sm text-(--ink) sm:grid-cols-2">
+                {[
+                  "5-bedroom duplex, Ajah",
+                  "5-bedroom terrace, Magodo",
+                  "2 bedroom flat, Magodo",
+                  "3 bedroom penthouse, Lekki",
+                  "4-bedroom terraces",
+                ].map((item) => (
+                  <Link
+                    key={item}
+                    href="/properties"
+                    className="rounded-2xl border border-(--line) px-4 py-3 transition hover:border-[var(--accent-brand)] hover:bg-[var(--sand-soft)]"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
